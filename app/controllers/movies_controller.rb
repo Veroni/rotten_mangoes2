@@ -27,6 +27,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
+    redirect_to movies_path
   end
 
   def destroy
