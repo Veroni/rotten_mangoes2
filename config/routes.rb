@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :movies
 
+
   # get 'movie/index'
 
   # get 'movie/show'

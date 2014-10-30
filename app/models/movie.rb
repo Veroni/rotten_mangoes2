@@ -9,9 +9,9 @@ class Movie < ActiveRecord::Base
 
   protected
 
-  def realease_date_is_not_in_the_future
-    unless release_date.present?
-      errors.add(:release_date, "should probably be not in the future") if release_date < Date.today
+  def release_date_is_not_in_the_future
+    if release_date.present?
+      errors.add(:release_date, "should probably be in the future") if release_date > Date.today
     end
   end
 end
