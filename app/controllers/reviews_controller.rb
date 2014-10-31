@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_filter :load_movie
+  before_filter :load_movie, only: [:new, :create, :show, :edit]
 
   def new
     @review = @movie.reviews.build
