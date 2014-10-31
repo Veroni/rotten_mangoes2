@@ -7,4 +7,15 @@ class ApplicationController < ActionController::Base
       @current_user = User.find(session[:user_id])
     end
   end
+
+  def create
+    @movie = Movie.new(movie_params)
+
+    if @movie.save
+      redirect_to movies_path, notice: "#{@movie.title} was submitted successfully!"
+    else
+      render :new
+    end
+  end
+
 end
