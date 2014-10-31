@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if @current_user %>
+  <%= @current_user.firstname %>
+  <button type="submit"><%= link_to 'Logout', session_path(@current_user.id), method: :delete %></button>
+  <% else %>
+  <button type="submit"><a href="<%= new_user_path %>">SignUp</a></button>
+  <button type="submit"><a href="<%= new_session_path %>">LogIn</a></button>
+<% end %>
 <%= yield %>
 
 </body>
