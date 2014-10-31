@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  protected
+    def restrict_access
+      unless @current_user
+        flash[:alert] = "You must logIn"
+        redirect_to new_session_path
+      end
+    end
 end

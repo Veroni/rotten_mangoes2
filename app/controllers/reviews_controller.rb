@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  
+  before_filter :restrict_access
   before_filter :load_movie, only: [:new, :create, :show, :edit]
 
   def new
