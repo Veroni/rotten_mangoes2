@@ -9,6 +9,12 @@ class Movie < ActiveRecord::Base
   validates :release_date, presence: true
   validate :release_date_is_not_in_the_future
 
+  def review_average
+    unless reviews.empty?
+      reviews.sum(:rating_out_of_ten)/reviews.size
+    end
+  end
+
   protected
 
   def release_date_is_not_in_the_future

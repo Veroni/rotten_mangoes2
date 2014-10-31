@@ -11,11 +11,11 @@
   <%= content_tag(:div, value) %>
 <% end %>
 <% if @current_user %>
-  <%= @current_user.firstname %>
+  Signed in as <%= @current_user.full_name %>
   <button type="submit"><%= link_to 'Logout', session_path(@current_user.id), method: :delete %></button>
   <% else %>
-  <button type="submit"><a href="<%= new_user_path %>">SignUp</a></button>
-  <button type="submit"><a href="<%= new_session_path %>">LogIn</a></button>
+  <button type="submit"><%= link_to 'SignUp', new_user_path %>"></button>
+  <button type="submit"><%= link_to 'LogIn', new_session_path %>"</button>
 <% end %>
 <%= yield %>
 
